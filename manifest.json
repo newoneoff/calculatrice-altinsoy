@@ -1,7 +1,7 @@
 {
   "name": "Calculatrice",
   "short_name": "Calculatrice",
-  "start_url": "/index.html",
+  "start_url": "/calculatrice-altinsoy/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1d4ed8",
