@@ -108,9 +108,9 @@ function sept () {rom = ('' + rom + 7);console.log(rom);document.getElementById(
 function huit () {rom  = ('' + rom + 8);console.log(rom);document.getElementById("screen").innerHTML = rom}
 function neuf () {rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom}
 function additionner () {rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function multiplier () {rom = ('' + rom + '×');console.log(rom);document.getElementById("screen").innerHTML = rom}
+function multiplier () {rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom}
 function soustraire () {rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function diviser () {rom = ('' + rom + '÷');console.log(rom);document.getElementById("screen").innerHTML = rom}
+function diviser () {rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom}
 function calculer() {try {
 rom = eval(rom); console.log(rom);document.getElementById("screen").innerHTML = rom;rom = ' '
 } catch {
