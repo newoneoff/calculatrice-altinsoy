@@ -74,6 +74,7 @@ fetch('https://emir.altinsoy.ovh', {
         method: 'GET,'}
         */
 let rom = ' '
+let rom_screen = ' '
 document.getElementById("0").onclick = zero 
 document.getElementById("1").onclick = un
 document.getElementById("2").onclick = deux
@@ -91,32 +92,33 @@ document.getElementById("÷").onclick = diviser
 document.getElementById("entrer").onclick = calculer
 document.getElementById("C").onclick = reset
 document.getElementById(".").onclick = point
-document.getElementById("(").onclick = ParenthèseGauche
-document.getElementById(")").onclick = ParenthèseDroite
-function reset () {rom = '';document.getElementById("screen").innerHTML = rom}
-function point () {rom = ('' + rom + '.');console.log(rom);document.getElementById("screen").innerHTML = rom }
-function ParenthèseDroite () {rom = ('' + rom + ')');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function ParenthèseGauche () {rom = ('' + rom + '(');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function zero () {rom = ('' + rom + 0);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function un () {rom = ('' + rom + 1);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function deux () {rom = ('' + rom + 2);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function trois () {rom = ('' + rom + 3);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function quatre () {rom = ('' + rom + 4);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function cinq () {rom = ('' + rom + 5);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function six () {rom = ('' + rom + 6);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function sept () {rom = ('' + rom + 7);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function huit () {rom  = ('' + rom + 8);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function neuf () {rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom}
-function additionner () {rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function multiplier () {rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function soustraire () {rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom}
-function diviser () {rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom}
+document.getElementById("(").onclick = ParenthèseG
+document.getElementById(")").onclick = ParenthèseD
+function reset () {rom = '';rom_screen = ' ';document.getElementById("screen").innerHTML = rom_screen;}
+function point () {rom = ('' + rom + '.');rom_screen = ('' + rom_screen + '.');console.log(rom);document.getElementById("screen").innerHTML = rom_screen }
+function ParenthèseD () {rom_screen = ('' + rom_screen + ')');rom = ('' + rom + ')');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function ParenthèseG () {rom_screen = ('' + rom_screen + '(');rom = ('' + rom + '(');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function zero () {rom_screen = ('' + rom_screen + '0');rom = ('' + rom + 0);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function un () {rom_screen = ('' + rom_screen + '1');rom = ('' + rom + 1);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function deux () {rom_screen = ('' + rom_screen + '2');rom = ('' + rom + 2);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function trois () {rom_screen = ('' + rom_screen + '3');rom = ('' + rom + 3);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function quatre () {rom_screen = ('' + rom_screen + '4');rom = ('' + rom + 4);console.log(rom);document.getElementById("screen").innerHTML = rom_screen }
+function cinq () {rom_screen = ('' + rom_screen + '5');rom = ('' + rom + 5);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function six () {rom_screen = ('' + rom_screen + '6');rom = ('' + rom + 6);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function sept () {rom_screen = ('' + rom_screen + '7');rom = ('' + rom + 7);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function huit () {rom_screen = ('' + rom_screen + '8');rom  = ('' + rom + 8);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function neuf () {rom_screen = ('' + rom_screen + '9');rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function additionner () {rom_screen = ('' + rom_screen + '+');rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function multiplier () {rom_screen = ('' + rom_screen + '×');rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function soustraire () {rom_screen = ('' + rom_screen + '-');rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+function diviser () {rom_screen = ('' + rom_screen + '÷');rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
 function calculer() {try {
-rom = eval(rom); console.log(rom);document.getElementById("screen").innerHTML = rom;rom = ' '
+rom = eval(rom);rom_screen = rom; console.log(rom);document.getElementById("screen").innerHTML = rom_screen;rom = ' '; rom_screen = ' '
 } catch {
     rom = '' //reset
-    document.getElementById("screen").innerHTML = rom + 'calcule imppossible'
+    rom_screen = ' '
+    document.getElementById("screen").innerHTML = rom + 'calcul imppossible'
 }}
-let teste = '002'
+
 
 
