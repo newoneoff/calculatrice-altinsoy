@@ -73,7 +73,7 @@ fetch('https://emir.altinsoy.ovh', {
         headers: { "accepte": "application/jpeg"},
         method: 'GET,'}
         */
-let rom = ''
+let rom = ' '
 document.getElementById("0").onclick = zero 
 document.getElementById("1").onclick = un
 document.getElementById("2").onclick = deux
@@ -112,7 +112,7 @@ function multiplier () {rom = ('' + rom + '*');console.log(rom);document.getElem
 function soustraire () {rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom}
 function diviser () {rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom}
 function calculer() {try {
-rom = eval(rom); console.log(rom);document.getElementById("screen").innerHTML = rom;rom = ''
+rom = eval(rom); console.log(rom);document.getElementById("screen").innerHTML = rom;rom = ' '
 } catch {
     rom = '' //reset
     document.getElementById("screen").innerHTML = rom + 'calcule imppossible'
