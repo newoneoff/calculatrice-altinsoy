@@ -1,80 +1,6 @@
-/*
+let rom = ''
+let rom_affichage = ''
 
-
-
-const b = new Book('Seigneur des anneaux', 200);
-console.log(b.page)
-
-
-b.nextPage()
-console.log(b.page)
-
-b.close()
-console.log(b.page)
-
-const l = new Library()
-l.addBook(b)
-l.addBooks([
-    new Book('Ready player one', 100),
-    new Book('Oui-oui', 10),
-    new Book('Sillage', 50),
-])
-
-
-console.log(l.findBooksByLetter('S'))
-
-
-class Rectangle {
-
-    constructor (width, height) {
-        if (width <= 0 || height <= 0){
-            throw new Error('change frère')
-        }
-        this.width = width
-        this.height = height
-    }
-
-    get perimeter () {
-        return (this.width + this.height) * 2
-    }
-
-    get isValid () {
-        return this.width > 0 && this.height > 0
-    }
-
-    isBiggerThan (shape) {
-        return this.perimeter > shape.perimeter
-    }
-
-}
-
-class Square extends Rectangle {
-    constructor(width) {
-        super(width, width)
-    }
-}
-
-async function fetchUser() {
-
-    const r = await fetch('https://emir.altinsoy.ovh', {
-        headers: { "accepte": "application/jpeg"},
-        method: 'GET,'})
-
-    if (r.ok === true) {
-        const data = await r.json();
-        return
-    } 
-
-    throw new Error('le serveur a pas repondondu chef')
-}
-fetchUser().then(user => console.log(user))
-
-fetch('https://emir.altinsoy.ovh', {
-        headers: { "accepte": "application/jpeg"},
-        method: 'GET,'}
-        */
-let rom = ' '
-let rom_screen = ' '
 document.getElementById("0").onclick = zero 
 document.getElementById("1").onclick = un
 document.getElementById("2").onclick = deux
@@ -92,33 +18,29 @@ document.getElementById("÷").onclick = diviser
 document.getElementById("entrer").onclick = calculer
 document.getElementById("C").onclick = reset
 document.getElementById(".").onclick = point
-document.getElementById("(").onclick = ParenthèseG
-document.getElementById(")").onclick = ParenthèseD
-function reset () {rom = '';rom_screen = ' ';document.getElementById("screen").innerHTML = rom_screen;}
-function point () {rom = ('' + rom + '.');rom_screen = ('' + rom_screen + '.');console.log(rom);document.getElementById("screen").innerHTML = rom_screen }
-function ParenthèseD () {rom_screen = ('' + rom_screen + ')');rom = ('' + rom + ')');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function ParenthèseG () {rom_screen = ('' + rom_screen + '(');rom = ('' + rom + '(');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function zero () {rom_screen = ('' + rom_screen + '0');rom = ('' + rom + 0);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function un () {rom_screen = ('' + rom_screen + '1');rom = ('' + rom + 1);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function deux () {rom_screen = ('' + rom_screen + '2');rom = ('' + rom + 2);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function trois () {rom_screen = ('' + rom_screen + '3');rom = ('' + rom + 3);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function quatre () {rom_screen = ('' + rom_screen + '4');rom = ('' + rom + 4);console.log(rom);document.getElementById("screen").innerHTML = rom_screen }
-function cinq () {rom_screen = ('' + rom_screen + '5');rom = ('' + rom + 5);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function six () {rom_screen = ('' + rom_screen + '6');rom = ('' + rom + 6);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function sept () {rom_screen = ('' + rom_screen + '7');rom = ('' + rom + 7);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function huit () {rom_screen = ('' + rom_screen + '8');rom  = ('' + rom + 8);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function neuf () {rom_screen = ('' + rom_screen + '9');rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function additionner () {rom_screen = ('' + rom_screen + '+');rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function multiplier () {rom_screen = ('' + rom_screen + '×');rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function soustraire () {rom_screen = ('' + rom_screen + '-');rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
-function diviser () {rom_screen = ('' + rom_screen + '÷');rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom_screen}
+document.getElementById("(").onclick = ParenthèseGauche
+document.getElementById(")").onclick = ParenthèseDroite
+
+function reset () {rom = '';rom_affichage = '' ;document.getElementById("screen").innerHTML = rom_affichage}
+function point () {rom_affichage = ('' + rom_affichage + '.');rom = ('' + rom + '.');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage }
+function ParenthèseDroite () {rom_affichage = ('' + rom_affichage + ')');rom = ('' + rom + ')');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function ParenthèseGauche () {rom_affichage = ('' + rom_affichage + '(');rom = ('' + rom + '(');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function zero () {rom_affichage = ('' + rom_affichage + 0);rom = ('' + rom + 0);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function un () {rom_affichage = ('' + rom_affichage + 1);rom = ('' + rom + 1);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function deux () {rom_affichage = ('' + rom_affichage + 2);rom = ('' + rom + 2);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function trois () {rom_affichage = ('' + rom_affichage + '3');rom = ('' + rom + 3);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function quatre () {rom_affichage = ('' + rom_affichage + '4');rom = ('' + rom + 4);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function cinq () {rom_affichage = ('' + rom_affichage + '5');rom = ('' + rom + 5);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function six () {rom_affichage = ('' + rom_affichage + '6');rom = ('' + rom + 6);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function sept () {rom_affichage = ('' + rom_affichage + '7');rom = ('' + rom + 7);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function huit () {rom_affichage = ('' + rom_affichage + '8');rom  = ('' + rom + 8);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function neuf () {rom_affichage = ('' + rom_affichage + '9');rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function additionner () {rom_affichage = ('' + rom_affichage + '+');rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function multiplier () {rom_affichage = ('' + rom_affichage + '×');rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function soustraire () {rom_affichage = ('' + rom_affichage + '-');rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function calculer() {try {
-rom = eval(rom);rom_screen = rom; console.log(rom);document.getElementById("screen").innerHTML = rom_screen;rom = ' '; rom_screen = ' '
+rom = eval(rom);rom_affichage = rom; console.log(rom);document.getElementById("screen").innerHTML = rom_affichage;rom = '';rom_affichage = ''
 } catch {
     rom = '' //reset
-    rom_screen = ' '
-    document.getElementById("screen").innerHTML = rom + 'calcul imppossible'
+    document.getElementById("screen").innerHTML = rom + 'calcule imppossible'
 }}
-
-
-
