@@ -1,5 +1,9 @@
 let rom = ''
 let rom_affichage = ''
+let historique = ''
+let localStorage_hist
+historique = localStorage.getItem('historique'); // recuperer l'historique
+document.getElementById("hist").innerHTML = historique;
 
 document.getElementById("0").onclick = zero 
 document.getElementById("1").onclick = un
@@ -20,8 +24,9 @@ document.getElementById("C").onclick = reset
 document.getElementById(".").onclick = point
 document.getElementById("(").onclick = ParenthèseGauche
 document.getElementById(")").onclick = ParenthèseDroite
-
+document.getElementById("supp").onclick = supp
 function reset () {rom = '';rom_affichage = '' ;document.getElementById("screen").innerHTML = rom_affichage}
+function supp () {rom_affichage = rom_affichage.slice(0, -1);rom = rom.slice(0, -1);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage }
 function point () {rom_affichage = ('' + rom_affichage + '.');rom = ('' + rom + '.');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage }
 function ParenthèseDroite () {rom_affichage = ('' + rom_affichage + ')');rom = ('' + rom + ')');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function ParenthèseGauche () {rom_affichage = ('' + rom_affichage + '(');rom = ('' + rom + '(');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
@@ -37,10 +42,36 @@ function huit () {rom_affichage = ('' + rom_affichage + '8');rom  = ('' + rom + 
 function neuf () {rom_affichage = ('' + rom_affichage + '9');rom = ('' + rom + 9);console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function additionner () {rom_affichage = ('' + rom_affichage + '+');rom = ('' + rom + '+');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function multiplier () {rom_affichage = ('' + rom_affichage + '×');rom = ('' + rom + '*');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
+function diviser () {rom_affichage = ('' + rom_affichage + '÷');rom = ('' + rom + '/');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function soustraire () {rom_affichage = ('' + rom_affichage + '-');rom = ('' + rom + '-');console.log(rom);document.getElementById("screen").innerHTML = rom_affichage}
 function calculer() {try {
-rom = eval(rom);rom_affichage = rom; console.log(rom);document.getElementById("screen").innerHTML = rom_affichage;rom = '';rom_affichage = ''
+rom = eval(rom);
+historique = historique + rom_affichage + ' = ' + rom + '<br />'
+localStorage.removeItem('historique');
+localStorage_hist = localStorage.setItem('historique', historique);
+
+console.log(localStorage_hist)
+console.log(historique)
+rom_affichage = rom;
+ console.log(rom);
+ document.getElementById("screen").innerHTML = rom_affichage;
+ rom = '';
+ rom_affichage = ''
+
 } catch {
     rom = '' //reset
     document.getElementById("screen").innerHTML = rom + 'calcule imppossible'
-}}
+}finally {document.getElementById("hist").innerHTML = historique;}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
